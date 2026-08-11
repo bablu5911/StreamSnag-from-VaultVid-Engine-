@@ -135,11 +135,14 @@ export function App() {
       {/* Non-Intrusive Ambient Motion Graphics Canvas */}
       <AmbientBackground />
 
-      {/* Right Corner Angled Text Watermark (Bablu above, Menariya below, angled) */}
-      <div className="fixed right-5 bottom-8 sm:right-10 sm:bottom-12 z-30 pointer-events-none select-none -rotate-12 opacity-85">
-        <div className="flex flex-col text-right font-marck text-white/95 text-3xl sm:text-4xl md:text-5xl font-normal leading-tight drop-shadow-md">
+      {/* Right Corner Angled Text Watermark (Tilted more, smaller compact size) */}
+      <div
+        className="fixed right-4 bottom-6 sm:right-8 sm:bottom-10 z-30 pointer-events-none select-none opacity-80"
+        style={{ transform: 'rotate(-28deg)' }}
+      >
+        <div className="flex flex-col text-right font-marck text-white/90 text-lg sm:text-xl md:text-2xl font-normal leading-tight tracking-wider drop-shadow">
           <span>Bablu</span>
-          <span className="-mt-2 sm:-mt-3">Menariya</span>
+          <span className="-mt-1 sm:-mt-1.5">Menariya</span>
         </div>
       </div>
 
