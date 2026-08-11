@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/api/extract", "destination": "/api/extract.js" },
+    { "source": "/api/download", "destination": "/api/download.js" }
+  ]
+}

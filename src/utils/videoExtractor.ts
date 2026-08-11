@@ -122,10 +122,18 @@ const fetchYouTubeDataApi = async (ytId: string) => {
   return null;
 };
 
-// Local Node.js / yt-dlp Backend Extractor (http://localhost:3001/api/extract)
+// Dynamic Backend Host helper for local dev & Vercel deployment
+const getBackendHost = () => {
+  if (typeof window !== 'undefined' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+    return '';
+  }
+  return 'http://localhost:3001';
+};
+
+// Local Node.js / yt-dlp Backend Extractor (/api/extract)
 const fetchLocalBackendMedia = async (targetUrl: string) => {
   try {
-    const res = await fetch(`http://localhost:3001/api/extract?url=${encodeURIComponent(targetUrl)}`);
+    const res = await fetch(`${getBackendHost()}/api/extract?url=${encodeURIComponent(targetUrl)}`);
     if (res.ok) {
       return await res.json();
     }
@@ -411,7 +419,7 @@ export const triggerBrowserDownload = async (videoUrl: string, filename: string)
   }
 
   // Server Attachment Download Route (Forces Chrome to download directly to disk)
-  const downloadUrl = `http://localhost:3001/api/download?url=${encodeURIComponent(targetUrl)}&filename=${encodeURIComponent(cleanName)}`;
+  const downloadUrl = `${getBackendHost()}/api/download?url=${encodeURIComponent(targetUrl)}&filename=${encodeURIComponent(cleanName)}`;
 
   const link = document.createElement('a');
   link.href = downloadUrl;
