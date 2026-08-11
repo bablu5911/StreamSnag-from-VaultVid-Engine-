@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import type { VideoInfo, QualityOption, RelatedVideo } from './types';
+import { ExternalLink } from 'lucide-react';
 import {
   isValidVideoUrl,
   extractVideoMetadata,
@@ -203,9 +204,21 @@ export function App() {
             </>
           )}
 
-          {/* c) Cursive signature */}
-          <div className="font-marck text-white/95 text-[38px] sm:text-[52px] md:text-[62px] leading-tight mb-6 mt-10 select-none tracking-wide font-normal">
-            Bablu Menariya
+          {/* c) Developer Signature & LinkedIn Profile Link */}
+          <div className="flex flex-col items-center gap-1.5 mb-6 mt-12">
+            <span className="text-[11px] uppercase tracking-widest text-white/75 font-mono font-medium select-none">
+              Developed By
+            </span>
+            <a
+              href="https://www.linkedin.com/in/bablu-menariya-819926319"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-marck text-white hover:text-amber-300 text-[42px] sm:text-[56px] md:text-[66px] leading-none transition-all tracking-wide font-normal hover:scale-105 transform active:scale-95 flex items-center gap-2 group cursor-pointer"
+              title="Connect with Bablu Menariya on LinkedIn"
+            >
+              <span>Bablu Menariya</span>
+              <ExternalLink className="w-5 h-5 sm:w-6 sm:h-6 opacity-0 group-hover:opacity-100 transition-opacity text-amber-300 shrink-0" />
+            </a>
           </div>
 
           {/* d) Platform Statements (Title Case, font-light) */}
