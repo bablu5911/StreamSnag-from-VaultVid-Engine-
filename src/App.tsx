@@ -225,18 +225,18 @@ export function App() {
             </p>
           </div>
 
-          {/* Separate Developer Credit with LinkedIn Profile Link */}
-          <div className="mt-4 mb-4 flex items-center justify-center gap-1.5 text-xs text-white/80 font-medium z-20 relative">
-            <span className="text-white/70">Developed By</span>
+          {/* Separate Developer Credit with LinkedIn Profile Link - Prominent Larger Text Size */}
+          <div className="mt-6 mb-6 flex flex-wrap items-center justify-center gap-2 text-base sm:text-lg md:text-xl text-white font-medium z-20 relative select-none">
+            <span className="text-white/80 font-normal uppercase tracking-wider text-sm sm:text-base">Developed By</span>
             <a
               href="https://www.linkedin.com/in/bablu-menariya-819926319"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-amber-300 font-bold underline transition-colors flex items-center gap-1 cursor-pointer"
+              className="text-white hover:text-amber-300 font-bold underline decoration-amber-400/60 underline-offset-4 transition-all flex items-center gap-1.5 cursor-pointer hover:scale-105 transform active:scale-95"
               title="Connect with Bablu Menariya on LinkedIn"
             >
               <span>Bablu Menariya</span>
-              <ExternalLink className="w-3.5 h-3.5 text-amber-300" />
+              <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 text-amber-300 shrink-0" />
             </a>
           </div>
         </div>
