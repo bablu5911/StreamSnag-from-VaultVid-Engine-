@@ -135,6 +135,14 @@ export function App() {
       {/* Non-Intrusive Ambient Motion Graphics Canvas */}
       <AmbientBackground />
 
+      {/* Right Corner Angled Text Watermark (Bablu above, Menariya below, angled) */}
+      <div className="fixed right-5 bottom-8 sm:right-10 sm:bottom-12 z-30 pointer-events-none select-none -rotate-12 opacity-85">
+        <div className="flex flex-col text-right font-marck text-white/95 text-3xl sm:text-4xl md:text-5xl font-normal leading-tight drop-shadow-md">
+          <span>Bablu</span>
+          <span className="-mt-2 sm:-mt-3">Menariya</span>
+        </div>
+      </div>
+
       {/* Fixed Header */}
       <Header
         onOpenHistory={() => setIsHistoryOpen(true)}
@@ -204,31 +212,29 @@ export function App() {
             </>
           )}
 
-          {/* c) Developer Signature & LinkedIn Profile Link */}
-          <div className="flex flex-col items-center gap-1.5 mb-6 mt-12">
-            <span className="text-[11px] uppercase tracking-widest text-white/75 font-mono font-medium select-none">
-              Developed By
-            </span>
-            <a
-              href="https://www.linkedin.com/in/bablu-menariya-819926319"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-marck text-white hover:text-amber-300 text-[42px] sm:text-[56px] md:text-[66px] leading-none transition-all tracking-wide font-normal hover:scale-105 transform active:scale-95 flex items-center gap-2 group cursor-pointer"
-              title="Connect with Bablu Menariya on LinkedIn"
-            >
-              <span>Bablu Menariya</span>
-              <ExternalLink className="w-5 h-5 sm:w-6 sm:h-6 opacity-0 group-hover:opacity-100 transition-opacity text-amber-300 shrink-0" />
-            </a>
-          </div>
-
-          {/* d) Platform Statements (Title Case, font-light) */}
-          <div className="text-white leading-[1.6] mb-[40px] w-full flex flex-col items-center font-light">
+          {/* c) Platform Statements (Title Case, font-light) */}
+          <div className="text-white leading-[1.6] mt-10 mb-6 w-full flex flex-col items-center font-light">
             <p className="mb-[24px] text-[15px] sm:text-[16px] w-[460px] max-w-full text-center">
               I Created StreamSnag Because Downloading Online Media Should Be Instant, Private, And Seamless. Our Engine Deciphers High-Bitrate Video Streams Directly Without Annoying Ads Or Quality Loss.
             </p>
             <p className="text-[15px] sm:text-[16px] w-[460px] max-w-full text-center">
               Enjoy Unrestricted Ultra HD Downloads Across YouTube, TikTok, Instagram, Twitter, And Vimeo. Superior Speed, High-Fidelity Audio, And Complete Convenience.
             </p>
+          </div>
+
+          {/* Separate Developer Credit with LinkedIn Profile Link */}
+          <div className="mt-4 mb-4 flex items-center justify-center gap-1.5 text-xs text-white/80 font-medium z-20 relative">
+            <span className="text-white/70">Developed By</span>
+            <a
+              href="https://www.linkedin.com/in/bablu-menariya-819926319"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-amber-300 font-bold underline transition-colors flex items-center gap-1 cursor-pointer"
+              title="Connect with Bablu Menariya on LinkedIn"
+            >
+              <span>Bablu Menariya</span>
+              <ExternalLink className="w-3.5 h-3.5 text-amber-300" />
+            </a>
           </div>
         </div>
       </div>
