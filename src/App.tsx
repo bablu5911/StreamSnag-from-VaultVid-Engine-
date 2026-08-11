@@ -225,9 +225,9 @@ export function App() {
             </p>
           </div>
 
-          {/* Separate Developer Credit with LinkedIn Profile Link - Prominent Larger Text Size */}
-          <div className="mt-6 mb-6 flex flex-wrap items-center justify-center gap-2 text-base sm:text-lg md:text-xl text-white font-medium z-20 relative select-none">
-            <span className="text-white/80 font-normal uppercase tracking-wider text-sm sm:text-base">Developed By</span>
+          {/* Separate Developer Credit with LinkedIn Profile Link - Refined Balanced Size */}
+          <div className="mt-5 mb-5 flex flex-wrap items-center justify-center gap-2 text-sm sm:text-base md:text-lg text-white font-medium z-20 relative select-none">
+            <span className="text-white/80 font-normal uppercase tracking-wider text-xs sm:text-sm">Developed By</span>
             <a
               href="https://www.linkedin.com/in/bablu-menariya-819926319"
               target="_blank"
@@ -236,7 +236,7 @@ export function App() {
               title="Connect with Bablu Menariya on LinkedIn"
             >
               <span>Bablu Menariya</span>
-              <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 text-amber-300 shrink-0" />
+              <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-300 shrink-0" />
             </a>
           </div>
         </div>
