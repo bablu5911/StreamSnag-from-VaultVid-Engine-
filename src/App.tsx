@@ -20,6 +20,7 @@ import { VideoResultPanel } from './components/VideoResultPanel';
 import { RelatedVideos } from './components/RelatedVideos';
 import { QualitySelectorModal } from './components/QualitySelectorModal';
 import { DownloadHistoryDrawer } from './components/DownloadHistoryDrawer';
+import { AmbientBackground } from './components/AmbientBackground';
 
 export function App() {
   const [url, setUrl] = useState('');
@@ -129,7 +130,10 @@ export function App() {
   };
 
   return (
-    <section className="relative min-h-screen w-full bg-[#C80A0A] flex flex-col z-10 font-manrope text-white pb-16">
+    <section className="relative min-h-screen w-full bg-[#C80A0A] flex flex-col z-10 font-manrope text-white pb-16 overflow-hidden">
+      {/* Non-Intrusive Ambient Motion Graphics Canvas */}
+      <AmbientBackground />
+
       {/* Fixed Header */}
       <Header
         onOpenHistory={() => setIsHistoryOpen(true)}
