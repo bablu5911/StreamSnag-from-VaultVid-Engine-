@@ -60,9 +60,6 @@ export const isValidVideoUrl = (url: string): boolean => {
   }
 };
 
-// 100% Reliable CORS-enabled high definition playable MP4 video source
-const HIGH_COMPATIBILITY_VIDEO_URL = 'https://vjs.zencdn.net/v/oceans.mp4';
-
 // Helper to format ISO 8601 YouTube Duration (e.g. PT8M24S -> 08:24)
 function parseISODuration(isoDuration: string): string {
   const match = isoDuration.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
@@ -182,7 +179,7 @@ export const extractVideoMetadata = async (rawUrl: string): Promise<VideoInfo> =
   let duration = '03:45';
   let views = '1.4M views';
   let thumbnail = 'https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=800&q=80';
-  let sampleVideoUrl = HIGH_COMPATIBILITY_VIDEO_URL;
+  let sampleVideoUrl = url;
 
   // 1. Try Local yt-dlp Backend First (Direct exact video extraction)
   const localData = await fetchLocalBackendMedia(url);
@@ -410,7 +407,7 @@ export const getRelatedVideos = (video: VideoInfo): RelatedVideo[] => {
 
 // Instant Native Browser File Downloader (0ms Latency, Direct Hand-off to Chrome Downloads)
 export const triggerBrowserDownload = async (videoUrl: string, filename: string): Promise<boolean> => {
-  const targetUrl = videoUrl || HIGH_COMPATIBILITY_VIDEO_URL;
+  const targetUrl = videoUrl;
 
   // Format clean file name ending with valid extension
   let cleanName = filename.replace(/[/\\?%*:|"<>]/g, '_').trim();

@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
-import type { VideoInfo, QualityOption, RelatedVideo } from './types';
+import type { VideoInfo, QualityOption } from './types';
 import { ExternalLink } from 'lucide-react';
 import {
   isValidVideoUrl,
   extractVideoMetadata,
-  getRelatedVideos,
   triggerBrowserDownload,
 } from './utils/videoExtractor';
 import {
@@ -18,7 +17,6 @@ import { LinkInput } from './components/LinkInput';
 import { VerificationState } from './components/VerificationState';
 import { ErrorState } from './components/ErrorState';
 import { VideoResultPanel } from './components/VideoResultPanel';
-import { RelatedVideos } from './components/RelatedVideos';
 import { QualitySelectorModal } from './components/QualitySelectorModal';
 import { DownloadHistoryDrawer } from './components/DownloadHistoryDrawer';
 import { AmbientBackground } from './components/AmbientBackground';
@@ -27,7 +25,6 @@ export function App() {
   const [url, setUrl] = useState('');
   const [appState, setAppState] = useState<'idle' | 'verifying' | 'verified' | 'error'>('idle');
   const [videoInfo, setVideoInfo] = useState<VideoInfo | null>(null);
-  const [relatedVideos, setRelatedVideos] = useState<RelatedVideo[]>([]);
   
   // Modals & Drawers
   const [isQualityModalOpen, setIsQualityModalOpen] = useState(false);
@@ -56,8 +53,6 @@ export function App() {
     try {
       const data = await extractVideoMetadata(linkToVerify);
       setVideoInfo(data);
-      const related = getRelatedVideos(data);
-      setRelatedVideos(related);
       setAppState('verified');
     } catch {
       setAppState('error');
@@ -201,18 +196,11 @@ export function App() {
           )}
 
           {appState === 'verified' && videoInfo && (
-            <>
-              <VideoResultPanel
-                video={videoInfo}
-                onDirectDownload={() => handleDirectBestDownload()}
-                onOpenQualityModal={() => setIsQualityModalOpen(true)}
-              />
-
-              <RelatedVideos
-                videos={relatedVideos}
-                onSelectRelated={(relUrl) => handleSelectSample(relUrl)}
-              />
-            </>
+            <VideoResultPanel
+              video={videoInfo}
+              onDirectDownload={() => handleDirectBestDownload()}
+              onOpenQualityModal={() => setIsQualityModalOpen(true)}
+            />
           )}
 
           {/* c) Platform Statements (Title Case, font-light) */}
